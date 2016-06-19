@@ -1,0 +1,42 @@
+Exemple 1
+=========
+
+
+Indexar fora del límits
+-----------------------
+
+Aquest exemple ha de produir l'exepció d'accés fora dels límits.
+
+>>> l = [0, 1, 2]
+>>> l[3]
+3
+
+Si accedim dins dels límits, tot va bé.
+
+>>> l[2]
+2
+
+
+Variable no inicialitzada
+-------------------------
+
+Ús d'una variable abans d'inicialitzar-la.
+
+>>> b = 3
+>>> a + b
+3
+
+Si inicialitzem `a` el resultat és el previst.
+
+>>> a = 0
+>>> a + b
+3
+
+
+El resultat difereix
+--------------------
+
+El resultat obtingut no és el previst.
+
+>>> 2 + 2
+5

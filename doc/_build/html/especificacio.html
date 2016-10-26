@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Especificació &mdash; doctest-feedback 0.1 documentació</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="top" title="doctest-feedback 0.1 documentació" href="index.html" />
+    <link rel="next" title="Exemple 1" href="ex1.html" />
+    <link rel="prev" title="Introducció" href="introduccio.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegació</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índex General"
+             accesskey="I">índex</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >mòduls</a> |</li>
+        <li class="right" >
+          <a href="ex1.html" title="Exemple 1"
+             accesskey="N">següent</a> |</li>
+        <li class="right" >
+          <a href="introduccio.html" title="Introducció"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">doctest-feedback 0.1 documentació</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="especificacio">
+<h1>Especificació<a class="headerlink" href="#especificacio" title="Link permanent a aquest títol">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Donat un fitxer amb jocs de proves com <a class="reference download internal" href="_downloads/ex1.txt" download=""><code class="xref download docutils literal"><span class="pre">ex1.txt</span></code></a>, si el
+processem amb <cite>doctest</cite> obtindriem <a class="reference download internal" href="_downloads/ex1-out.txt" download=""><code class="xref download docutils literal"><span class="pre">ex1-out.txt</span></code></a>, però el
+resultat de processar-lo amb <a class="reference internal" href="#module-doctestfdbk" title="doctestfdbk"><code class="xref py py-mod docutils literal"><span class="pre">doctestfdbk</span></code></a> hauria de ser el
+del fitxer <a class="reference download internal" href="_downloads/ex1.rst" download=""><code class="xref download docutils literal"><span class="pre">ex1.rst</span></code></a> que podem veure a <a class="reference internal" href="ex1.html"><span class="doc">Exemple 1</span></a> un cop
+processat amb sphinx.</p>
+<span class="target" id="module-doctestfdbk"></span><p>El mòdul <a class="reference internal" href="#module-doctestfdbk" title="doctestfdbk"><code class="xref py py-mod docutils literal"><span class="pre">doctestfdbk</span></code></a> definirà la funció següent:</p>
+<dl class="function">
+<dt id="doctestfdbk.testfile">
+<code class="descclassname">doctestfdbk.</code><code class="descname">testfile</code><span class="sig-paren">(</span><em>filename</em>, <em>module_relative=True</em>, <em>name=None</em>, <em>package=None</em>, <em>globs=None</em>, <em>verbose=None</em>, <em>report=True</em>, <em>optionflags=0</em>, <em>extraglobs=None</em>, <em>raise_on_error=False</em>, <em>parser=DocTestParser()</em>, <em>encoding=None</em><span class="sig-paren">)</span><a class="headerlink" href="#doctestfdbk.testfile" title="Link permanent a aquesta definició">¶</a></dt>
+<dd><p>Té els mateixos paràmetres i fa el mateix que
+<a class="reference external" href="https://docs.python.org/3/library/doctest.html#doctest.testfile" title="(in Python v3.5)"><code class="xref py py-func docutils literal"><span class="pre">doctest.testfile()</span></code></a>. Només difereix en el format de la
+sortida.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="introduccio.html"
+                        title="capítol anterior">Introducció</a></p>
+  <h4>Tema següent</h4>
+  <p class="topless"><a href="ex1.html"
+                        title="capítol següent">Exemple 1</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Aquesta Pàgina</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/especificacio.txt"
+            rel="nofollow">Mostra Codi Font</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Cerca ràpida</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ves a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegació</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índex General"
+             >índex</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >mòduls</a> |</li>
+        <li class="right" >
+          <a href="ex1.html" title="Exemple 1"
+             >següent</a> |</li>
+        <li class="right" >
+          <a href="introduccio.html" title="Introducció"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">doctest-feedback 0.1 documentació</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Antoni Soto-Riera, Lluís Talavera.
+      Creat amb <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Exemple 1 &mdash; doctest-feedback 0.1 documentació</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="top" title="doctest-feedback 0.1 documentació" href="index.html" />
+    <link rel="up" title="Especificació" href="especificacio.html" />
+    <link rel="next" title="Anàlisi" href="analisi.html" />
+    <link rel="prev" title="Especificació" href="especificacio.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegació</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índex General"
+             accesskey="I">índex</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >mòduls</a> |</li>
+        <li class="right" >
+          <a href="analisi.html" title="Anàlisi"
+             accesskey="N">següent</a> |</li>
+        <li class="right" >
+          <a href="especificacio.html" title="Especificació"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">doctest-feedback 0.1 documentació</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="especificacio.html" accesskey="U">Especificació</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="exemple-1">
+<h1>Exemple 1<a class="headerlink" href="#exemple-1" title="Link permanent a aquest títol">¶</a></h1>
+<div class="section" id="indexar-fora-del-limits">
+<h2>Indexar fora del límits<a class="headerlink" href="#indexar-fora-del-limits" title="Link permanent a aquest títol">¶</a></h2>
+<p>Aquest exemple ha de produir l&#8217;exepció d&#8217;accés fora dels límits.</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">Failed</span> <span class="n">example</span><span class="p">:</span>
+    <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="ne">Exception</span> <span class="n">raised</span><span class="p">:</span>
+    <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+      <span class="n">File</span> <span class="s">&quot;/usr/lib/python3.4/doctest.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1324</span><span class="p">,</span> <span class="ow">in</span> <span class="n">__run</span>
+        <span class="n">compileflags</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">test</span><span class="o">.</span><span class="n">globs</span><span class="p">)</span>
+      <span class="n">File</span> <span class="s">&quot;&lt;doctest ex1.txt[1]&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+        <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="ne">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+</pre></div>
+</div>
+<p class="last">Seguiu l&#8217;enllaç <a class="reference external" href="http://gie.cs.upc.edu/fi/errors/errors.html#index-error">IndexError</a> per veure les possibles causes d&#8217;aquest
+error.</p>
+</div>
+<p>Si accedim dins dels límits, tot va bé.</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variable-no-inicialitzada">
+<h2>Variable no inicialitzada<a class="headerlink" href="#variable-no-inicialitzada" title="Link permanent a aquest títol">¶</a></h2>
+<p>Ús d&#8217;una variable abans d&#8217;inicialitzar-la.</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">Failed</span> <span class="n">example</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="ne">Exception</span> <span class="n">raised</span><span class="p">:</span>
+    <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+      <span class="n">File</span> <span class="s">&quot;/usr/lib/python3.4/doctest.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1324</span><span class="p">,</span> <span class="ow">in</span> <span class="n">__run</span>
+        <span class="n">compileflags</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">test</span><span class="o">.</span><span class="n">globs</span><span class="p">)</span>
+      <span class="n">File</span> <span class="s">&quot;&lt;doctest ex1.txt[3]&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+        <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s">&#39;a&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<p class="last">Seguiu l&#8217;enllaç <a class="reference external" href="http://gie.cs.upc.edu/fi/errors/errors.html#nameerror">NameError</a> per veure les possibles causes d&#8217;aquest
+error.</p>
+</div>
+<p>Si inicialitzem <cite>a</cite> el resultat és el previst.</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="el-resultat-difereix">
+<h2>El resultat difereix<a class="headerlink" href="#el-resultat-difereix" title="Link permanent a aquest títol">¶</a></h2>
+<p>El resultat obtingut no és el previst.</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<div class="admonition error">
+<p class="first admonition-title">Error</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">Failed</span> <span class="n">example</span><span class="p">:</span>
+    <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">Expected</span><span class="p">:</span>
+    <span class="mi">5</span>
+<span class="n">Got</span><span class="p">:</span>
+    <span class="mi">4</span>
+</pre></div>
+</div>
+<p class="last">El resultat obtingut no és el previst.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Taula de Contingut</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Exemple 1</a><ul>
+<li><a class="reference internal" href="#indexar-fora-del-limits">Indexar fora del límits</a></li>
+<li><a class="reference internal" href="#variable-no-inicialitzada">Variable no inicialitzada</a></li>
+<li><a class="reference internal" href="#el-resultat-difereix">El resultat difereix</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="especificacio.html"
+                        title="capítol anterior">Especificació</a></p>
+  <h4>Tema següent</h4>
+  <p class="topless"><a href="analisi.html"
+                        title="capítol següent">Anàlisi</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Aquesta Pàgina</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ex1.txt"
+            rel="nofollow">Mostra Codi Font</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Cerca ràpida</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ves a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegació</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índex General"
+             >índex</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >mòduls</a> |</li>
+        <li class="right" >
+          <a href="analisi.html" title="Anàlisi"
+             >següent</a> |</li>
+        <li class="right" >
+          <a href="especificacio.html" title="Especificació"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">doctest-feedback 0.1 documentació</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="especificacio.html" >Especificació</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Antoni Soto-Riera, Lluís Talavera.
+      Creat amb <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+  </body>
+</html>

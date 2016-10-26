@@ -1,0 +1,77 @@
+Exemple
+=======
+
+Indexar fora de limits
+----------------------
+
+Aquest ejemple ha de produir el següent:
+
+#. Quelcom.
+
+   >>> import doctest
+   >>> l = [1,2]
+
+#. Una altra cosa.
+
+   >>> 2 + 2
+   3
+   
+   .. error::
+   
+      ::
+   
+        Failed example:
+            2 + 2
+        Expected:
+            3
+        Got:
+            4
+            
+   >>> 2+2
+   4
+
+#. I encara més coses.
+
+   >>> 2+"hola"
+   
+   .. error::
+   
+      ::
+   
+        Failed example:
+            2+"hola"     
+        Exception raised:
+            Traceback (most recent call last):
+              File "/usr/lib/python3.4/doctest.py", line 1318, in __run
+                compileflags, 1), test.globs)
+              File "<doctest [4]>", line 1, in <module>
+            TypeError: unsupported operand type(s) for +: 'int' and 'str'
+            
+      Seguiu l'enllac TypeError_ per veure les possibles causes
+      
+   >>> l[4]
+   2
+   
+   .. error::
+   
+      ::
+   
+        Failed example:
+            l[4]     
+        Exception raised:
+            Traceback (most recent call last):
+              File "/usr/lib/python3.4/doctest.py", line 1318, in __run
+                compileflags, 1), test.globs)
+              File "<doctest [5]>", line 1, in <module>
+            IndexError: list index out of range
+            
+      Seguiu l'enllac IndexError_ per veure les possibles causes
+      
+   >>> l[0] == 1
+   True
+
+.. Enllacos als errors
+.. _IndexError: http://gie.cs.upc.edu/fi/errors/errors.html#index-error
+.. _NameError: http://gie.cs.upc.edu/fi/errors/errors.html#nameerror
+.. _TypeError: http://gie.cs.upc.edu/fi/errors/errors.html#typeerror
+

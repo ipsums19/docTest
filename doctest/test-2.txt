@@ -1,0 +1,86 @@
+Exemple 2
+=========
+
+
+Funcions trigonomètriques
+-------------------------
+
+>>> from math import sin, cos, pi
+
+>>> alfa = 1.2
+>>> sin(alfa)**2 + cos(alfa)**2 == 1 # assess: +TAG=trigo
+True
+>>> alfa = 0
+>>> sin(alfa)**2 + cos(alfa)**2 == 1 # assess: +TAG=trigo
+True
+>>> alfa = pi
+>>> sin(alfa)**2 + cos(alfa)**2 == 1 # assess: +TAG=trigo
+True
+
+
+Funció exponencial
+------------------
+
+>>> from math import exp
+
+>>> x, y = 3, 2
+>>> exp(x + y) == exp(x) * exp(y) # assess: +TAG=expo
+True
+>>> x, y = 0, 1
+>>> exp(x + y) == exp(x) * exp(y) # assess: +TAG=expo
+True
+
+
+Funcions trigonomètriques inverses
+----------------------------------
+
+>>> from math import asin, acos, pi
+
+>>> alfa = 1.2
+>>> asin(alfa) == 1 / sin(alfa) # assess: +TAG=trigo
+True
+>>> acos(alfa) == 1 / cos(alfa) # assess: +TAG=trigo
+True
+>>> alfa = 0
+>>> asin(alfa) == 1 / sin(alfa) # assess: +TAG=trigo
+True
+>>> acos(alfa) == 1 / cos(alfa) # assess: +TAG=trigo
+True
+
+
+Resultat de doctest_assess
+--------------------------
+
+La funció ``testfile`` hauria de retornar un diccionari com el
+següent::
+
+  {
+    'notag': TestResults(failed=0, attempted=10),
+    'trigo': TestResults(failed=4, attempted=7),
+    'expo' : TestResults(failed=0, attempted=2),
+  }
+
+
+Càlcul de la nota
+-----------------
+
+El càlcul de la nota el pot fer un programa en python com per exemple
+``ex1-nota.py``. Aleshores, el diccionari que retorna ``testfile`` es
+pot usar com el diccionari de variables globals de la funció
+``exec``::
+
+  glob1 = testfile('ex1.txt')
+  with open('ex1-nota.py') as f
+      exec(f.read(), glob1)
+  nota = glob1['nota']
+
+
+Puntuació
+--------
+
+::
+
+   ex1 6
+     ex1.1 5
+     ex1.2 5 
+   ex2 4

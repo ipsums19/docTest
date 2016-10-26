@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ca">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Implementació &mdash; doctest-feedback 0.1 documentació</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
+    <link rel="top" title="doctest-feedback 0.1 documentació" href="index.html" />
+    <link rel="prev" title="Tasques" href="tasques.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegació</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índex General"
+             accesskey="I">índex</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >mòduls</a> |</li>
+        <li class="right" >
+          <a href="tasques.html" title="Tasques"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">doctest-feedback 0.1 documentació</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="implementacio">
+<h1>Implementació<a class="headerlink" href="#implementacio" title="Link permanent a aquest títol">¶</a></h1>
+<div class="section" id="idea-general">
+<h2>Idea General<a class="headerlink" href="#idea-general" title="Link permanent a aquest títol">¶</a></h2>
+<p>La idea era crear una nova funció testfile en la cual rebriem el fitxer.txt
+que volem testejar, aquest fitxer el dividirem en 2 parts, la part del
+doctest i la part dels strings. Anirem intercalan la sortida string, test.</p>
+</div>
+<div class="section" id="primer-intent">
+<h2>Primer Intent<a class="headerlink" href="#primer-intent" title="Link permanent a aquest títol">¶</a></h2>
+<p>Primer vam intentar pasar al runner els testos un per un, i que la funció
+testfile sigues l&#8217;encarragat de printar per ordre els strings i els test.
+Llavors el problema que teniem es que tots els exemples s&#8217;havien d&#8217;executar
+en un mateix doctest, com s&#8217;argumenta en la pàgina de <a class="reference external" href="https://docs.python.org/3/library/doctest.html#doctest-objects">python</a>, ja que han de
+mantenir el mateix namespace.</p>
+</div>
+<div class="section" id="segona-implementacio">
+<h2>Segona Implementació<a class="headerlink" href="#segona-implementacio" title="Link permanent a aquest títol">¶</a></h2>
+<p>El segon intent va ser que la nostra clase myDocTestRunner imprimis ell
+directament ja la sortida intercalada amb string, test. Per aixó abans
+d&#8217;executar el nostre runner el que fem es asignar-li un nou atribut
+strings el cual fara la funció de cua. Així el runner abans de imprimir
+cada test el primer que farà és imprimir el primer string de la llista
+i eliminar-lo.</p>
+</div>
+<div class="section" id="class-mydoctestrunner">
+<h2>Class myDocTestRunner<a class="headerlink" href="#class-mydoctestrunner" title="Link permanent a aquest títol">¶</a></h2>
+<dl class="class">
+<dt id="doctestfdbk.MyDocTestRunner">
+<em class="property">class </em><code class="descclassname">doctestfdbk.</code><code class="descname">MyDocTestRunner</code><span class="sig-paren">(</span><em>checker=None</em>, <em>verbose=None</em>, <em>optionflags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#doctestfdbk.MyDocTestRunner" title="Link permanent a aquesta definició">¶</a></dt>
+<dd><p>La nostre classe MyDocTestRunner heretada de la classe DocTestRunner del modul doctest
+simplement fa una variacio en el output de la classe. On la sortida sera sempre primer
+un string, el cual sera introduit per la funcio testfile, i despres l&#8217;execucio de un test</p>
+<dl class="method">
+<dt id="doctestfdbk.MyDocTestRunner.report_failure">
+<code class="descname">report_failure</code><span class="sig-paren">(</span><em>out</em>, <em>test</em>, <em>example</em>, <em>got</em><span class="sig-paren">)</span><a class="headerlink" href="#doctestfdbk.MyDocTestRunner.report_failure" title="Link permanent a aquesta definició">¶</a></dt>
+<dd><p>Funcio que executa la classe DocTestRunner en cas que el example sigui realitzat correctament
+pero la sortida no sigui la esperada. Modifica el parametre out per tal que la sortida sigui la esperada.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paràmetres:</th><td class="field-body"><ul class="first last simple">
+<li><strong>out</strong> &#8211; el output de la funcio</li>
+<li><strong>test</strong> &#8211; el test que conte l&#8217;example</li>
+<li><strong>example</strong> &#8211; es el example que es procesat</li>
+<li><strong>got</strong> &#8211; el resultat obtingut</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="doctestfdbk.MyDocTestRunner.report_success">
+<code class="descname">report_success</code><span class="sig-paren">(</span><em>out</em>, <em>test</em>, <em>example</em>, <em>got</em><span class="sig-paren">)</span><a class="headerlink" href="#doctestfdbk.MyDocTestRunner.report_success" title="Link permanent a aquesta definició">¶</a></dt>
+<dd><p>Funcio que executa la classe DocTestRunner en cas que el example sigui realitzat correctament,
+modificant el parametre out per tal que la sortida sigui la esperada.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paràmetres:</th><td class="field-body"><ul class="first last simple">
+<li><strong>out</strong> &#8211; el output de la funcio</li>
+<li><strong>test</strong> &#8211; el test que conte l&#8217;example</li>
+<li><strong>example</strong> &#8211; es el example que es procesat</li>
+<li><strong>got</strong> &#8211; el resultat obtingut</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="doctestfdbk.MyDocTestRunner.report_unexpected_exception">
+<code class="descname">report_unexpected_exception</code><span class="sig-paren">(</span><em>out</em>, <em>test</em>, <em>example</em>, <em>exc_info</em><span class="sig-paren">)</span><a class="headerlink" href="#doctestfdbk.MyDocTestRunner.report_unexpected_exception" title="Link permanent a aquesta definició">¶</a></dt>
+<dd><p>Funcio que executa la classe DocTestRunner en cas que el example no s&#8217;executi correctamet.
+Modifica el parametre out per tal que la sortida sigui la esperada.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Paràmetres:</th><td class="field-body"><ul class="first last simple">
+<li><strong>out</strong> &#8211; el output de la funcio</li>
+<li><strong>test</strong> &#8211; el test que conte l&#8217;example</li>
+<li><strong>example</strong> &#8211; es el example que es procesat</li>
+<li><strong>got</strong> &#8211; el resultat obtingut</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="funcio-testfile2">
+<h2>Funció testfile2<a class="headerlink" href="#funcio-testfile2" title="Link permanent a aquest títol">¶</a></h2>
+<dl class="function">
+<dt id="doctestfdbk.testfile">
+<code class="descclassname">doctestfdbk.</code><code class="descname">testfile</code><span class="sig-paren">(</span><em>filename</em>, <em>fileErrors</em><span class="sig-paren">)</span><a class="headerlink" href="#doctestfdbk.testfile" title="Link permanent a aquesta definició">¶</a></dt>
+<dd><p>Funció testfile() que rep per paràmetres el filename que seria el fitxer
+doctest que volem mostrar per pantalla, i el fitxer fileErrors que serà
+els links dels errors que volem mostrar. La funció crearà una instància
+de myDocTestRunner, i instanciarà un paràmetre strings que serà una llista
+d&#8217;strings els cuals l[n] i l[n+1] seran els strings en el cual el n text estarà
+entremig</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Taula de Contingut</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Implementació</a><ul>
+<li><a class="reference internal" href="#idea-general">Idea General</a></li>
+<li><a class="reference internal" href="#primer-intent">Primer Intent</a></li>
+<li><a class="reference internal" href="#segona-implementacio">Segona Implementació</a></li>
+<li><a class="reference internal" href="#class-mydoctestrunner">Class myDocTestRunner</a></li>
+<li><a class="reference internal" href="#funcio-testfile2">Funció testfile2</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="tasques.html"
+                        title="capítol anterior">Tasques</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Aquesta Pàgina</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/implementacio.txt"
+            rel="nofollow">Mostra Codi Font</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Cerca ràpida</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ves a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegació</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Índex General"
+             >índex</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >mòduls</a> |</li>
+        <li class="right" >
+          <a href="tasques.html" title="Tasques"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">doctest-feedback 0.1 documentació</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Antoni Soto-Riera, Lluís Talavera.
+      Creat amb <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+  </body>
+</html>

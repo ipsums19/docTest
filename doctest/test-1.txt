@@ -1,0 +1,19 @@
+Exemple
+=======
+
+Indexar fora de limits
+----------------------
+
+Aquest ejemple ha de produir tal.
+
+>>> import doctest
+>>> l = [1,2]
+>>> 2 + 2
+3
+>>> 2+2
+4
+>>> 2+"hola"
+>>> l[4]
+
+Deuuuuu
+

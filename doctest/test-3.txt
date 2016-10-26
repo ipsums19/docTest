@@ -1,0 +1,28 @@
+Exemple
+=======
+
+Indexar fora de limits
+----------------------
+
+Aquest ejemple ha de produir el següent:
+
+#. Quelcom.
+
+   >>> import doctest
+   >>> l = [1,2]
+
+#. Una altra cosa.
+
+   >>> 2 + 2
+   3
+   >>> 2+2
+   4
+
+#. I encara més coses.
+
+   >>> 2+"hola"
+   >>> l[4]
+   2
+   >>> l[0] == 1
+   True
+

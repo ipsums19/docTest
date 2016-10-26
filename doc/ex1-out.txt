@@ -1,0 +1,34 @@
+**********************************************************************
+File "ex1.txt", line 11, in ex1.txt
+Failed example:
+    l[3]
+Exception raised:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.4/doctest.py", line 1324, in __run
+        compileflags, 1), test.globs)
+      File "<doctest ex1.txt[1]>", line 1, in <module>
+        l[3]
+    IndexError: list index out of range
+**********************************************************************
+File "ex1.txt", line 26, in ex1.txt
+Failed example:
+    a + b
+Exception raised:
+    Traceback (most recent call last):
+      File "/usr/lib/python3.4/doctest.py", line 1324, in __run
+        compileflags, 1), test.globs)
+      File "<doctest ex1.txt[4]>", line 1, in <module>
+        a + b
+    NameError: name 'a' is not defined
+**********************************************************************
+File "ex1.txt", line 41, in ex1.txt
+Failed example:
+    2 + 2
+Expected:
+    5
+Got:
+    4
+**********************************************************************
+1 items had failures:
+   3 of   8 in ex1.txt
+***Test Failed*** 3 failures.
